@@ -1,17 +1,16 @@
-{
-    // implementation 1
-    const pause = (milliseconds) => {
-        var d = new Date();
-        while ((new Date()) - d <= milliseconds) { /* nothing */ }
-    }
+// implementation 1 using while in pause
+{    
     function waitTill(condition) {
-        const index = 0;
+        const pause = (milliseconds) => {
+            var d = new Date();
+            while ((new Date()) - d <= milliseconds) { /* nothing */ }
+        };
         const millisInLoop = 100;
         while(condition() === false) {
             pause(millisInLoop);
         }
     }
-    // Test - implementation 1
+    // Test
     var index = 0;
     function conditionToGetOutOfWait(){ 
         index++; 
@@ -25,22 +24,21 @@
 
 // ----------------------------------------------------
 
+// implementation 2 using promise in pause    
 {
-    // implementation 2
-    async function pauseUsingPromise(milliseconds) {
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve();
-            }, milliseconds);
-        });
-    } 
     async function waitTillWithPromise(condition) {
-        const index = 0;
+        async function pauseUsingPromise(milliseconds) {
+            return new Promise((resolve)=>{
+                setTimeout(()=>{
+                    resolve();
+                }, milliseconds);
+            });
+        }
         while(condition() === false) {
             await pauseUsingPromise(100);
         }
     }
-    // Test - implementation 1
+    // Test
     var index = 0;
     function conditionToGetOutOfWait(){ 
         index++; 
