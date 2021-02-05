@@ -1,6 +1,6 @@
 # Wait till condition
 
-Just am small demo how to implement waiting function in javascript
+Just am small demo how to implement waiting function using while and promise in javascript
 
 ## Authors
 
