@@ -1,4 +1,4 @@
-# wait-till-condition
+Wait till condition
 
 Just am small demo how to implement waiting function in javascript
 
